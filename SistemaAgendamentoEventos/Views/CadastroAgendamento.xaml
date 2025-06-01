@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaAgendamentoEventos.Views.CadastroAgendamento"
+             Title="CadastroAgendamento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource CinzaChumbo}">
+
+    <ScrollView Padding="10">
+
+        <VerticalStackLayout Padding="10" Spacing="10">
+
+            <Label Text="Cadastro de Agendamento" 
+            FontSize="32" 
+            HorizontalOptions="Center"
+            TextColor="{StaticResource White}"/>
+
+            <Frame BackgroundColor="{StaticResource Black}">
+                <VerticalStackLayout>
+                    <Label Text="Insira os dados abaixo para cadastrar o seu Evento"/>
+                    <Frame BackgroundColor="{StaticResource MidnightBlue}" BorderColor="{StaticResource MidnightBlue}">
+                        <VerticalStackLayout>
+
+                            <Label Text="Nome do Evento:"
+                                   TextColor="{StaticResource LaranjaG}"/>
+
+                            <Entry Placeholder="Nome do Evento"
+                                Text="{Binding NomeEvento}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="{StaticResource MidnightBlue}" BorderColor="{StaticResource MidnightBlue}">
+                        <VerticalStackLayout>
+                            <Label Text="Período De tempo do Evento"
+                                   TextColor="{StaticResource LaranjaG}"/>
+                            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" HorizontalOptions="Center" RowSpacing="15" ColumnSpacing="10">
+
+                                <Label Grid.Row="0" Grid.Column="0"
+                                    Text="Data de Início do Evento"/>
+                                <DatePicker Grid.Row="0" Grid.Column="1"
+                                    MinimumDate="{Binding MinDataInicio}"
+                                    MaximumDate="{Binding MaxDataInicio}"
+                                    Format="dd/MM/yyyy"
+                                    Date="{Binding DataInicio}"/>
+
+                                <Label Grid.Row="1" Grid.Column="0"
+                                    Text="Data de Fim do Evento"/>
+                                <DatePicker Grid.Row="1" Grid.Column="1"
+                                    MinimumDate="{Binding MinDataTermino}"
+                                    MaximumDate="{Binding MaxDataTermino}"
+                                    Format="dd/MM/yyyy"
+                                    Date="{Binding DataTermino}"/>
+
+                            </Grid>
+                            
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="{StaticResource MidnightBlue}" BorderColor="{StaticResource MidnightBlue}">
+                        <VerticalStackLayout>
+
+                            <Label Text="Numero de participantes"
+                                   TextColor="{StaticResource LaranjaG}"/>
+                            <Grid RowDefinitions="*,*" ColumnDefinitions="*,2*"
+                                  HorizontalOptions="Center" ColumnSpacing="15">
+                                <Label Grid.Row="0" Grid.Column="0"
+                                    Text="{Binding NParticipantes}"/>
+
+                                <Stepper Grid.Row="0" Grid.Column="1"
+                                    Minimum="0"
+                                    Maximum="2000"
+                                    Increment="1"
+                                    Value="{Binding NParticipantes}"/>
+                            </Grid>
+                            
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="{StaticResource MidnightBlue}" BorderColor="{StaticResource MidnightBlue}">
+                        <VerticalStackLayout>
+
+                            <Label Text="Local do Evento"
+                                   TextColor="{StaticResource LaranjaG}"/>
+                            <Entry Placeholder="Local do Evento"
+                                Text="{Binding LocalEvento}"/>
+
+                            <Label Text="Custo por Participante"
+                                   TextColor="{StaticResource LaranjaG}"/>
+                            <Entry Placeholder="R$: 00,00"
+                                Text="{Binding ValorParticipante}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    
+                    <Button Text="Cadastrar Evento"
+                            HorizontalOptions="Center"
+                            Clicked="Button_Clicked_Avancar"
+                            TextColor="{StaticResource OffWhite}" 
+                            BackgroundColor="{StaticResource Verde}" 
+                            BorderColor="{StaticResource Verde}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

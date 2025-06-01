@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaAgendamentoEventos.Views.EventoAgendado"
+             Title="EventoAgendado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource AzulMarinhoEscuro}">
+
+
+    <ScrollView Padding="10">
+
+        <VerticalStackLayout>
+            <Label Text="{Binding NomeEvento, StringFormat='Evento: {0}. Agendado com sucesso!'}"
+                   FontSize="30"
+                   TextColor="{StaticResource LaranjaG}"/>
+            <Frame BackgroundColor="{StaticResource CinzaChumbo}">
+                <VerticalStackLayout>
+                    <Frame BackgroundColor="{StaticResource MidnightBlue}" BorderColor="{StaticResource MidnightBlue}">
+                        <VerticalStackLayout>
+
+                            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="Data de Início:"
+                                       TextColor="{StaticResource OffWhite}"/>
+
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}"
+                                       TextColor="{StaticResource LaranjaG}"/>
+
+                                <Label Grid.Row="1" Grid.Column="0"
+                                       Text="Data de Término:"
+                                       TextColor="{StaticResource OffWhite}"/>
+
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       Text="{Binding DataTermino, StringFormat='{0:dd/MM/yyyy}'}"
+                                       TextColor="{StaticResource LaranjaG}"/>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="{StaticResource MidnightBlue}" BorderColor="{StaticResource MidnightBlue}">
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout Padding="0">
+
+                                <Label Text="Duração (dias):"
+                                       TextColor="{StaticResource OffWhite}"/>
+
+                                <Label Text="{Binding DuracaoEmDias}"
+                                       TextColor="{StaticResource LaranjaG}"/>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Padding="0">
+
+                                <Label Text="Número de Participantes:"
+                                       TextColor="{StaticResource OffWhite}"/>
+
+                                <Label Text="{Binding NParticipantes}"
+                                       TextColor="{StaticResource LaranjaG}"/>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Padding="0">
+
+                                <Label Text="Local do Evento:"
+                                       TextColor="{StaticResource OffWhite}"/>
+
+                                <Label Text="{Binding LocalEvento}"
+                                       TextColor="{StaticResource LaranjaG}"/>
+
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="{StaticResource MidnightBlue}" BorderColor="{StaticResource MidnightBlue}">
+                        <VerticalStackLayout>
+
+                            <HorizontalStackLayout Padding="0">
+
+                                <Label Text="Valor por Participante:"
+                                       TextColor="{StaticResource OffWhite}"/>
+
+                                <Label Text="{Binding ValorParticipante, StringFormat='Custo: {0:C}'}"
+                                       TextColor="{StaticResource LaranjaG}"/>
+
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Padding="0">
+
+                                <Label Text="Custo Total do Evento:"
+                                       TextColor="{StaticResource OffWhite}"/>
+
+                                <Label Text="{Binding CustoTotal, StringFormat='Total: {0:C}'}"
+                                       TextColor="{StaticResource LaranjaG}"/>
+
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+
+                    <Button Text="Voltar ao Cadastro"
+                            HorizontalOptions="Center"
+                            Clicked="Button_Clicked"
+                            TextColor="{StaticResource OffWhite}" 
+                            BackgroundColor="{StaticResource Verde}" 
+                            BorderColor="{StaticResource Verde}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+
+
+
+
+
+
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
